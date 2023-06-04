@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>QR code Generator</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" href="favicon.png" type="image/x-icon">
+</head>
+
+<body>
+    <script type="text/javascript">
+        function genqr()
+        {
+            var gapi="https://chart.googleapis.com/chart?chf=bg,s,65432100&cht=qr&chs=";
+            var mytext=document.getElementById("qrtext");
+            var myimg=document.getElementById("img");
+            var mysize=document.getElementById("size").value;
+
+                if(mytext!=="")
+                {
+                    myimg.src=gapi+mysize+"&chl="+mytext;
+                }
+                else
+                {
+                    alert("Please enter text!");
+                }
+        }
+    </script>
+    <h2 style="margin: auto;">QR Code Generator</h2>
+    <div>
+        <img src="" id="img">
+    </div>
+    <div class="grid">
+        <select id="size">
+            <option value="100x100">100x100</option>
+            <option value="150x150" selected>150x150</option>
+            <option value="200x200">200x200</option>
+            <option value="250x250">250x250</option>
+            <option value="300x300">300x300</option>
+        </select><br><br>
+        <textarea placeholder="Enter your text here :)" id="qrtext"></textarea><br><br>
+        <input type="submit" onclick="genqr()" value="Generate QR">
+        <p>Developed by <strong>Nikhil Agarwal *_-</strong></p>
+    </div>
+</body>
+
+</html>
